@@ -1,0 +1,5 @@
+[
+  { "name": "Paris", "x": 7, "y": 5},
+  { "name": "London", "x": 6, "y": 6},
+  { "name": "Montreal", "x": -2, "y": 6}
+]
