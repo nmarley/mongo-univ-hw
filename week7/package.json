@@ -1,0 +1,10 @@
+{
+  "name": "final-m101js",
+  "version": "0.0.0",
+  "description": "Final Project for M101JS",
+  "dependencies": {
+    "mongodb": "1.4.16"
+  },
+  "license": "BSD",
+  "private": true
+}
