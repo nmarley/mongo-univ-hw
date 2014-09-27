@@ -4,6 +4,9 @@ var express = require('express')
   , MongoClient = require('mongodb').MongoClient // Driver for connecting to MongoDB
   , routes = require('./routes'); // Routes for our application
 
+var cookieParser = require('cookie-parser')
+var bodyParser = require('body-parser')
+
 MongoClient.connect('mongodb://localhost:27017/blog', function(err, db) {
     "use strict";
     if(err) throw err;
@@ -13,11 +16,11 @@ MongoClient.connect('mongodb://localhost:27017/blog', function(err, db) {
     app.set('view engine', 'html');
     app.set('views', __dirname + '/views');
 
-    // Express middleware to populate 'req.cookies' so we can access cookies
-    app.use(express.cookieParser());
+    // middleware to populate 'req.cookies' so we can access cookies
+    app.use(cookieParser());
 
-    // Express middleware to populate 'req.body' so we can access POST variables
-    app.use(express.bodyParser());
+    // middleware to populate 'req.body' so we can access POST variables
+    app.use(bodyParser());
 
     // Application routes
     routes(app, db);
