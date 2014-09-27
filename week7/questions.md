@@ -148,9 +148,34 @@ Hint: you might consider creating an index or two or your program will take a lo
 47,678
 38,934
 45,911
-44,822
+This one --> 44,822
 
 # ==
 
 ### Final: Question 8
 
+Suppose you have a three node replica set. Node 1 is the primary. Node 2 is a secondary, Node 3 is a secondary running with a delay of two hours. All writes to the database are issued with w=majority and j=1 (by which we mean that the getLastError call has those values set).
+
+A write operation (could be insert or update) is initiated from your application using the Node.js driver at time=0. At time=5 seconds, the primary, Node 1, goes down for an hour and node 2 is elected primary. Note that your write operation has not yet returned at the time of the failure. Note also that although you have not received a response from the write, it has been processed and written by Node 1 before the failure. Node 3, since it has a slave delay option set, is lagging.
+
+Will there be a rollback of data on Node 1 when Node 1 comes back up? Choose the best answer.
+
+Yes, always
+No, never
+Maybe, it depends on whether Node 3 has processed the write
+(OK) Maybe, it depends on whether Node 2 has processed the write
+
+# ==
+
+### Final: Question 9
+
+Imagine an electronic medical record database designed to hold the medical records of every individual in the United States. Because each person has more than 16MB of medical history and records, it's not feasible to have a single document for every patient. Instead, there is a patient collection that contains basic information on each person and maps the person to a patient_id, and a record collection that contains one document for each test or procedure. One patient may have dozens or even hundreds of documents in the record collection.
+
+We need to decide on a shard key to shard the record collection. What's the best shard key for the record collection, provided that we are willing to run inefficient scatter-gather operations to do infrequent research and run studies on various diseases and cohorts? That is, think mostly about the operational aspects of such a system. And by operational, we mean, think about what the most common operations that this systems needs to perform day in and day out.
+
+# ==
+
+### Final: Question 10
+
+
+# ==
